@@ -1,15 +1,15 @@
 # Shop Command Line
-This is a command line application that is for managing a grocery list. It is a fun way to play with `System.CommandLine` and `System.CommandLine.Rendering`. This application uses `System.CommandLine` directly. `System.CommandLine` can be used to make createing command line applications even more simple than this example. Check out `System.CommandLine.DragonFruit` for a simple way to define arguments in your `Main`. You can check them all out [here](https://github.com/dotnet/command-line-api/wiki).
+This is a command line application that is for managing a grocery list. It is a fun way to play with `System.CommandLine` and `System.CommandLine.Rendering`. This application uses `System.CommandLine` directly. `System.CommandLine` can be used to make createing command line applications even more simple than this example. Check out `System.CommandLine.DragonFruit` for a simple way to define arguments in your `Main`. You can check them all out [here](https://github.com/dotnet/command-line-api).
 
 Should you really build a shopping list app from the command line? TBD
 
-### TODO
+## TODO
 Persist the list!!!
 
-### Dependencies
+## Dependencies
 .NET Core 3.1
 
-### Getting Started
+## Getting Started
 To get help and see all of the commands:
 ```
 > dotnet run -- ShopCommandLine -h
@@ -20,7 +20,7 @@ Once you have chosen a command, you can view more detailed help like this:
 > dotnet run -- ShopCommandLine add-item -h
 ```
 
-### Examples
+## Examples
 _Check out help for info on all of the commands. Below are examples using the `add-item` command._
 
 
