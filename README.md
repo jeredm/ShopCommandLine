@@ -48,3 +48,6 @@ If I forget to use quotes, how do I know if it will parse correctly?
 Want to dig in more and find out about tools like debugging and tab completion, or figure out what all the symbols in the `[parse]` directive mean?
 
 [Checkout System.CommandLine!](https://github.com/dotnet/command-line-api/wiki)
+
+## Colors
+The Shopping List displays in color, but there are still some color issues that need to be ironed out between different terminal types and operating systems, so your milage may vary.
