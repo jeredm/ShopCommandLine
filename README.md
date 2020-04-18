@@ -50,4 +50,4 @@ Want to dig in more and find out about tools like debugging and tab completion, 
 [Checkout System.CommandLine!](https://github.com/dotnet/command-line-api/wiki)
 
 ## Colors
-The Shopping List displays in color, but there are still some color issues that need to be ironed out between different terminal types and operating systems, so your milage may vary.
+The Shopping List displays in color, but there are still some color issues that need to be ironed out between different terminal types and operating systems. Your mileage may vary.
