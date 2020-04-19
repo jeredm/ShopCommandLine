@@ -7,10 +7,9 @@ namespace ShopCommandLine
 {
     public class ShoppingListView : StackLayoutView
     {
-        public ShoppingListView(ShoppingList shoppingList, IConsole console)
+        public ShoppingListView(IShoppingList shoppingList)
         {
             if (shoppingList is null) throw new ArgumentNullException(nameof(shoppingList));
-            if (console is null) throw new ArgumentNullException(nameof(console));
 
             var items = shoppingList.Items is null ? new ShoppingListItem[0] : shoppingList.Items;
             

@@ -10,6 +10,7 @@ Persist the list!!!
 .NET Core 3.1
 
 ## Getting Started
+_All of the examples in this file should be executed from the `src/CommandLine` path_
 To get help and see all of the commands:
 ```
 > dotnet run -- ShopCommandLine -h

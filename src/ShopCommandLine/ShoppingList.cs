@@ -13,11 +13,11 @@ namespace ShopCommandLine
         // TODO: Get this data from a persistance layer
         public ShoppingListItem[] Items => new []
         {
-            new ShoppingListItem { Name = "Tortillas", Quantity = 1 },
-            new ShoppingListItem { Name = "Mountain Dew", Quantity = 24 },
-            new ShoppingListItem { Name = "Cheese", Quantity = 1 },
-            new ShoppingListItem { Name = "Chips", Quantity = 1 },
-            new ShoppingListItem { Name = "Hot Sauce", Quantity = 2 },
+            new ShoppingListItem("Tortillas", 1),
+            new ShoppingListItem("Mountain Dew", 24),
+            new ShoppingListItem("Cheese", 1),
+            new ShoppingListItem("Chips", 1),
+            new ShoppingListItem("Hot Sauce", 2)
         }; 
 
         public async Task AddItemsAsync(IConsole console, string name, int quantity)
@@ -40,7 +40,7 @@ namespace ShopCommandLine
 
             // TODO: Adjust implementation to allow for a much larger list instead of limiting it to the visible region.
             // Using Render instead of console.Append to force the OutputMode.Ansi.
-            var view = new ShoppingListView(this, console);
+            var view = new ShoppingListView(this);
             view.Render(new ConsoleRenderer(console, OutputMode.Ansi, true), 
                 new Region(Console.WindowLeft, Console.WindowTop));
         }
@@ -53,8 +53,11 @@ namespace ShopCommandLine
             }
             else
             {
-                // FIME: There should be a way to do this without using the System.Console directly.
-                Console.Clear();
+                terminal = console.GetTerminal();
+                if (!(terminal is null))
+                {
+                    terminal.Clear();
+                }
             }
         }
     }
