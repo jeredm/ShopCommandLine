@@ -1,4 +1,6 @@
 # Shop Command Line
+![.NET Core](https://github.com/jeredm/ShopCommandLine/workflows/.NET%20Core/badge.svg)
+
 This is a command line application that is for managing a grocery list. It is a fun way to play with `System.CommandLine` and `System.CommandLine.Rendering`. This application uses `System.CommandLine` directly. `System.CommandLine` can be used to make createing command line applications even more simple than this example. Check out `System.CommandLine.DragonFruit` for a simple way to define arguments in your `Main`. You can check them all out [here](https://github.com/dotnet/command-line-api).
 
 Should you really build a shopping list app from the command line? TBD
