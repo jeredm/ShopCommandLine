@@ -9,7 +9,8 @@ namespace ShopCommandLine
         {
             var addCommmand = new Command("add-item", "Adds a grocery item to the list")
             {
-                new Option<int>(new string[] { "--quantity", "-q" }, () => 1, "The number of items to add"),
+                new Option<int>(new string[] { "--quantity", "-q" }, () => 1, "The number of items to add (between 1 and 999)")
+                    .WithinRange(1, 999),
                 new Argument<string>("name")
                 {
                     Description = "The name of the grocery item"
@@ -27,7 +28,8 @@ namespace ShopCommandLine
         public static RootCommand UseRemoveItemCommand(this RootCommand rootCommand, IShoppingList shoppingList)
         {
             var removeCommand = new Command("remove-item", "Removes a grocery item to the list") {
-                new Option<int>(new string[] { "--quantity", "-q" }, () => 1, "The number of items to remove"),
+                new Option<int>(new string[] { "--quantity", "-q" }, () => 1, "The number of items to remove (between 1 and 999)")
+                    .WithinRange(1, 999),
                 new Argument<string>("name")
                 {
                     Description = "The name of the grocery item"
