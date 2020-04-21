@@ -6,9 +6,17 @@ namespace ShopCommandLine
 {
     public static class OptionValidationExtensions
     {
-        public static Option<int> WithinRange(this Option<int> option, int minValue, int maxValue)
+        public static Option<T> WithinRange<T>(this Option<T> option, T minValue, T maxValue) where T : IComparable<T>, IConvertible
         {
-            if (minValue > maxValue)
+            if (minValue is null)
+            {
+                throw new ArgumentNullException(nameof(minValue));
+            }
+            if (maxValue is null)
+            {
+                throw new ArgumentNullException(nameof(maxValue));
+            }
+            if (minValue.CompareTo(maxValue) > 0)
             {
                 throw new ArgumentException($"{nameof(minValue)} must be <= {nameof(maxValue)}");
             }
@@ -18,14 +26,19 @@ namespace ShopCommandLine
                     .Select(t => t.Value)
                     .Where(tokenValue => 
                     {
-                        int value;
-                        if (int.TryParse(tokenValue, out value))
+                        try
                         {
-                            return value < minValue || value > maxValue;
+                            T value = (T)Convert.ChangeType(tokenValue, typeof(T));
+                            Console.Write(value.CompareTo(minValue));
+                            Console.WriteLine(value.CompareTo(maxValue));
+                            return !(value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0);
                         }
-                        return true;
+                        catch(Exception) 
+                        { 
+                            return true;
+                        }
                     })
-                    .Select(value => $"The option '{opt.Symbol.RawAliases.First()}' must be an integer between {minValue} and {maxValue}. You passed: '{value}'.")
+                    .Select(value => $"The option '{opt.Symbol.RawAliases.First()}' must be of type '{opt.Option.ValueType}' and between '{minValue}' and '{maxValue}'. You passed: '{value}'.")
                     .FirstOrDefault());
             return option;
         }
