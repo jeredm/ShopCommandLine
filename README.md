@@ -9,18 +9,24 @@ Should you really build a shopping list app from the command line? TBD
 Persist the list!!!
 
 ## Dependencies
-.NET Core 3.1
+.NET 10 SDK
 
 ## Getting Started
-_All of the examples in this file should be executed from the `src/CommandLine` path_
+Run the commands from the repository root.
+
 To get help and see all of the commands:
 ```
-> dotnet run -- ShopCommandLine -h
+> dotnet run --project src/ShopCommandLine/ShopCommandLine.csproj -- -h
 ```
 
 Once you have chosen a command, you can view more detailed help like this:
 ```
-> dotnet run -- ShopCommandLine add-item -h
+> dotnet run --project src/ShopCommandLine/ShopCommandLine.csproj -- add-item -h
+```
+
+To run the test suite:
+```
+> dotnet test src/ShopCommandLine.Tests/ShopCommandLine.Tests.csproj
 ```
 
 ## Examples
@@ -29,22 +35,22 @@ _Check out help for info on all of the commands. Below are examples using the `a
 
 Here is how you add one bag of coffee beans to your list:
 ```
-> dotnet run -- ShopCommandLine add-item "coffee beans"
+> dotnet run --project src/ShopCommandLine/ShopCommandLine.csproj -- add-item "coffee beans"
 ```
 
 Need more?
 ```
-> dotnet run -- ShopCommandLine add-item "coffee beans" --quantity 12
+> dotnet run --project src/ShopCommandLine/ShopCommandLine.csproj -- add-item "coffee beans" --quantity 12
 ```
 
 But wait, I thought a command could have an alias so I don't have to type?
 ```
-> dotnet run -- ShopCommandLine add "coffee beans" -q 12
+> dotnet run --project src/ShopCommandLine/ShopCommandLine.csproj -- add "coffee beans" -q 12
 ```
 
 If I forget to use quotes, how do I know if it will parse correctly?
 ```
-> dotnet run -- ShopCommandLine [parse] add coffee beans
+> dotnet run --project src/ShopCommandLine/ShopCommandLine.csproj -- [parse] add coffee beans
 [ ShopCommandLine [ add [ name <coffee> ] *[ --quantity <1> ] ] ]   ???--> beans
 ```
 

@@ -39,8 +39,8 @@ namespace System.CommandLine.Tests.Utility
             return new AndConstraint<GenericCollectionAssertions<T>>(assertions);
         }
 
-        public static AndConstraint<StringCollectionAssertions> BeEquivalentSequenceTo(
-            this StringCollectionAssertions assertions,
+        public static AndConstraint<GenericCollectionAssertions<string>> BeEquivalentSequenceTo(
+            this GenericCollectionAssertions<string> assertions,
             params string[] expectedValues)
         {
             return assertions.BeEquivalentTo(expectedValues, c => c.WithStrictOrderingFor(s => s));
